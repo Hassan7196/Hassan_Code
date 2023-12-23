@@ -179,10 +179,12 @@ def output_vector_processor(path):
 
     # Load the emotion data from a CSV file
     df = pd.read_csv(path)
-    new_header = df.iloc[29]
-    df = df.iloc[30:]
-    df.columns = new_header
-    df.dropna(axis=1, how="all", inplace=True)
+
+    # Use the below code if you are using the file from the imotions
+    # new_header = df.iloc[29]
+    # df = df.iloc[30:]
+    # df.columns = new_header
+    # df.dropna(axis=1, how="all", inplace=True)
 
     # Create an instance of the EmotionVectorProcessor class and process the emotion data
     emotion_vector_processor = EmotionVectorProcessor(df, video_emotion)

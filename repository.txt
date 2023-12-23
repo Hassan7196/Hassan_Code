@@ -1,5 +1,7 @@
-data_files,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\all files
-Features_files,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Testing
-Combined_File,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\combinedFile\combined_StatisticsFeatures_data.csv
-Ground_truth_File,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Ground_truth_file\individual_ground_truth.csv
-merge_File,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Combined_FileWith_GroundTruth\merge_data.csv
+data_files,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Processed_files\Imputated files
+Features_files,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Processed_files\Features file\Individual Features\
+Combined_File,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Processed_files\Features file\combined features\combined_StatisticsFeatures_data.csv
+Ground_truth_File,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Final Files\Ground_truth_file\individual_ground_truth.csv
+merge_File,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Final Files\merge Files\Final_dataSet.csv
+imputation_Files,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Processed_files\Imputated files\
+GSR_SignalNoise,E:\Hassan Raza\Univeristy Of Essex\Dissertation\Code\Files\Processed_files\GSR_SignalQuality\GSR_signal_quality.csv

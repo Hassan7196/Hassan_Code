@@ -1,6 +1,7 @@
 from Statistics_Features import statistics_features
 from Combining_all_Statistics_Features import combining_statistics_features
 from merge_files import merge_file
+from Imputation import imputation_files
 
 if __name__ == "__main__":
 
@@ -26,17 +27,35 @@ if __name__ == "__main__":
     repository_name_5 = "merge_File"
     merge_File = repository_data[repository_name_5]
 
+    repository_name_6 = "imputation_Files"
+    imputation_Files_path = repository_data[repository_name_6]
+
+    repository_name_7 = "GSR_SignalNoise"
+    GSR_QualitySignals= repository_data[repository_name_7]
+
     while True:
         print("\nChoose a function:")
-        print("1. Convert Imotion Data files into statistics Features files")
+        print("0. Imputation files")
+        print("1. Convert Data File into features matrix")
         print("2. Combined all features data files")
         print("3. Merge all data with Ground Truth")
 
         choice = input("Enter the number of the function you want to choose: ")
 
+        if choice == "0":
+            print("\n Now go to the Respository.txt file, Change the Path of Line 1, where you have all data files or imputated data files"
+                  "from the imotion\n "
+                  ",and Line 6, change the path where you would like to have your imputated files")
+            choice_2 = input("\nPress 1 to continue, or any other number to go back to previous statement:")
+            if choice_2 == "1":
+                imputation_files(data_files_path, imputation_Files_path,)
+            else:
+                continue
+
         if choice == "1":
             print("\nNow go to the Respository.txt file, Change the Paths of Line 1, where you have all the data files,"
                   " and Line 2, where u want all of you files after processed, ")
+                 # "\nFinally Line 7 give the path of the file of GSR Signal Quality File")
             choice_2 = input("\nPress 1 to continue, or any other number to go back to previous statement:")
             if choice_2 == "1":
                 statistics_features(data_files_path, features_files_path)
@@ -45,7 +64,7 @@ if __name__ == "__main__":
         if choice == "2":
             print("\n Now go to the Respository.txt file, Change the Path of Line 2, where you have all the "
                   "statistics features data files, "
-                  " \nfrom Choice 1, And Line 3 path to where you want to add your combined feature file")
+                  " \nfrom Choice 1, And Line 3 path to where you want to add your combined feature file \n")
             choice_2 = input("\nPress 1 to continue, or any other number to go back to previous statement:")
             if choice_2 == "1":
                 combining_statistics_features(features_files_path, combined_file_path)
