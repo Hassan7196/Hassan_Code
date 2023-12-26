@@ -2,6 +2,7 @@ from Statistics_Features import statistics_features
 from Combining_all_Statistics_Features import combining_statistics_features
 from merge_files import merge_file
 from Imputation import imputation_files
+from best_features import best_features
 
 if __name__ == "__main__":
 
@@ -31,14 +32,18 @@ if __name__ == "__main__":
     imputation_Files_path = repository_data[repository_name_6]
 
     repository_name_7 = "GSR_SignalNoise"
-    GSR_QualitySignals= repository_data[repository_name_7]
+    GSR_QualitySignals_path = repository_data[repository_name_7]
+
+    repository_name_8 = "best_features"
+    best_features_path = repository_data[repository_name_8]
 
     while True:
         print("\nChoose a function:")
         print("0. Imputation files")
         print("1. Convert Data File into features matrix")
         print("2. Combined all features data files")
-        print("3. Merge all data with Ground Truth")
+        print("3. Merge all data with Ground Truth & GSR quality signals")
+        print("4. Extract Best features")
 
         choice = input("Enter the number of the function you want to choose: ")
 
@@ -75,11 +80,23 @@ if __name__ == "__main__":
             print("\n Now go to the Respository.txt file, Change the Path of Line 3, where you have combined features "
                   "file from Choice 2, \n "
                   "Line 4 path where you have ground truth file"
-                  "\n and line 5 where want your merge file to be")
+                  "\n and line 5 where want your Final data file to be."
+                  "\n line 7 where your GSR quality signal data")
             choice_2 = input("\nPress 1 to continue, or any other number to go back to previous statement:")
             if choice_2 == "1":
-                merge_file(combined_file_path, Ground_truth_File, merge_File)
+                merge_file(combined_file_path, Ground_truth_File, merge_File, GSR_QualitySignals_path)
             else:
                 continue
+
+        if choice == "4":
+            print("\n Now go to the Respository.txt file, Change the Path of Line 5, where you have your final data "
+                  "file from option 3 "
+                  "\n line 8, add path where you want your features file")
+            choice_2 = input("\nPress 1 to continue, or any other number to go back to previous statement:")
+            if choice_2 == "1":
+                best_features(merge_File, best_features_path)
+            else:
+                continue
+
 
 

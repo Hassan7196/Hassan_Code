@@ -12,7 +12,6 @@ from Quality_Signals import quality_signals_FER, quality_signals_PupilSize, qual
 
 def statistics_features(data_path, processed_data_path):
 
-    # GSR_quality_signals = GSRSignalQuality(GSR_QualitySignals)
     directory_path = data_path
     for filename in os.listdir(directory_path):
         if filename.endswith(".csv"):
@@ -48,96 +47,96 @@ def statistics_features(data_path, processed_data_path):
             heartRate_quality_signals = quality_signals_HeartRate(data_for_qualitySignals_HeartRate, filename)
 
 
-           #
-           # # arousal_valence_pairs = output_vector_processor(file_path)
-           # #  all_values = arousal_valence_pairs
-           #  emotions = list(video_emotion.keys())
-           #  values = list(video_emotion.values())
-           #  max_valence_values = []
-           #  max_arousal_values = []
-           #  min_valence_values = []
-           #  min_arousal_values = []
-           #  final_mean_arousal = []
-           #  final_mean_valence = []
-           #  std_deviation_arousal = []
-           #  std_deviation_valence = []
-           #  kurtosis_FER_arousal = []
-           #  kurtosis_FER_valence = []
-           #
-           #  for emotion in emotions:
-           #      sum_valence = 0
-           #      sum_arousal = 0
-           #      total_number_valence = 0
-           #      total_number_arosual = 0
-           #      file_names.append(filename.split(".")[0])
-           #      current_emotion_data = all_values[emotion]
-           #
-           #      # Valence
-           #      if len(current_emotion_data['valence']) > 0:
-           #          max_min, max_max = min(current_emotion_data['valence']), max(current_emotion_data['valence'])
-           #
-           #          if max_max > abs(max_min):
-           #              max_valence_values.append(max_max)
-           #          else:
-           #              max_valence_values.append(max_min)
-           #
-           #          if all(value > 0 for value in current_emotion_data['valence']):
-           #              min_valence_values.append(min(current_emotion_data['valence']))
-           #          elif all(value < 0 for value in current_emotion_data['valence']):
-           #              min_valence_values.append(max(current_emotion_data['valence']))
-           #          else:
-           #              min_valence_values.append(0)
-           #
-           #          sum_valence += sum(current_emotion_data['valence'])
-           #          total_number_valence += len(current_emotion_data['valence'])
-           #
-           #      else:
-           #          max_valence_values.append(0)
-           #          min_valence_values.append(0)
-           #
-           #      if len(current_emotion_data['valence']) > 1:
-           #          std_deviation_valence.append(stats.stdev(current_emotion_data['valence']))
-           #          kurtosis_FER_valence.append(kurtosis(current_emotion_data['valence']))
-           #      else:
-           #          std_deviation_valence.append(0)
-           #          kurtosis_FER_valence.append(0)
-           #
-           #      # Arousal
-           #      if len(current_emotion_data['arousal']) > 0:
-           #          mini, maxi = min(current_emotion_data['arousal']), max(current_emotion_data['arousal'])
-           #
-           #          max_arousal_values.append(maxi)
-           #          min_arousal_values.append(mini)
-           #
-           #          sum_arousal += sum(current_emotion_data['arousal'])
-           #          total_number_arosual += len(current_emotion_data['arousal'])
-           #      else:
-           #          max_arousal_values.append(0)
-           #          min_arousal_values.append(0)
-           #
-           #      if len(current_emotion_data['arousal']) > 1:
-           #          std_deviation_arousal.append(stats.stdev(current_emotion_data['arousal']))
-           #          kurtosis_FER_arousal.append(kurtosis(current_emotion_data['arousal']))
-           #      else:
-           #          std_deviation_arousal.append(0)
-           #          kurtosis_FER_arousal.append(0)
-           #
-           #      final_mean_arousal.append(sum_arousal / total_number_arosual if total_number_arosual > 0 else 0)
-           #      final_mean_valence.append(sum_valence / total_number_valence if total_number_valence > 0 else 0)
+
+            arousal_valence_pairs = output_vector_processor(file_path)
+            all_values = arousal_valence_pairs
+            emotions = list(video_emotion.keys())
+            values = list(video_emotion.values())
+            max_valence_values = []
+            max_arousal_values = []
+            min_valence_values = []
+            min_arousal_values = []
+            final_mean_arousal = []
+            final_mean_valence = []
+            std_deviation_arousal = []
+            std_deviation_valence = []
+            kurtosis_FER_arousal = []
+            kurtosis_FER_valence = []
+
+            for emotion in emotions:
+                sum_valence = 0
+                sum_arousal = 0
+                total_number_valence = 0
+                total_number_arosual = 0
+                file_names.append(filename.split(".")[0])
+                current_emotion_data = all_values[emotion]
+
+                # Valence
+                if len(current_emotion_data['valence']) > 0:
+                    max_min, max_max = min(current_emotion_data['valence']), max(current_emotion_data['valence'])
+
+                    if max_max > abs(max_min):
+                        max_valence_values.append(max_max)
+                    else:
+                        max_valence_values.append(max_min)
+
+                    if all(value > 0 for value in current_emotion_data['valence']):
+                        min_valence_values.append(min(current_emotion_data['valence']))
+                    elif all(value < 0 for value in current_emotion_data['valence']):
+                        min_valence_values.append(max(current_emotion_data['valence']))
+                    else:
+                        min_valence_values.append(0)
+
+                    sum_valence += sum(current_emotion_data['valence'])
+                    total_number_valence += len(current_emotion_data['valence'])
+
+                else:
+                    max_valence_values.append(0)
+                    min_valence_values.append(0)
+
+                if len(current_emotion_data['valence']) > 1:
+                    std_deviation_valence.append(stats.stdev(current_emotion_data['valence']))
+                    kurtosis_FER_valence.append(kurtosis(current_emotion_data['valence']))
+                else:
+                    std_deviation_valence.append(0)
+                    kurtosis_FER_valence.append(0)
+
+                # Arousal
+                if len(current_emotion_data['arousal']) > 0:
+                    mini, maxi = min(current_emotion_data['arousal']), max(current_emotion_data['arousal'])
+
+                    max_arousal_values.append(maxi)
+                    min_arousal_values.append(mini)
+
+                    sum_arousal += sum(current_emotion_data['arousal'])
+                    total_number_arosual += len(current_emotion_data['arousal'])
+                else:
+                    max_arousal_values.append(0)
+                    min_arousal_values.append(0)
+
+                if len(current_emotion_data['arousal']) > 1:
+                    std_deviation_arousal.append(stats.stdev(current_emotion_data['arousal']))
+                    kurtosis_FER_arousal.append(kurtosis(current_emotion_data['arousal']))
+                else:
+                    std_deviation_arousal.append(0)
+                    kurtosis_FER_arousal.append(0)
+
+                final_mean_arousal.append(sum_arousal / total_number_arosual if total_number_arosual > 0 else 0)
+                final_mean_valence.append(sum_valence / total_number_valence if total_number_valence > 0 else 0)
 
             features = {
-                # "participant": file_names,
-                # "video": values,
-                # "FER_Mean_Valence": final_mean_valence,
-                # "FER_Mean_Arousal": final_mean_arousal,
-                # "FER_Std_Valence": std_deviation_valence,
-                # "FER_Std_Arousal": std_deviation_arousal,
-                # "FER_Kurtosis_Valence": kurtosis_FER_valence,
-                # "FER_Kurtosis_Arousal": kurtosis_FER_arousal,
-                # "FER_Max_Valence": max_valence_values,
-                # "FER_Max_Arousal": max_arousal_values,
-                # "FER_Min_Valence": min_valence_values,
-                # "FER_Min_Arousal": min_arousal_values,
+                "participant": file_names,
+                "video": values,
+                "FER_Mean_Valence": final_mean_valence,
+                "FER_Mean_Arousal": final_mean_arousal,
+                "FER_Std_Valence": std_deviation_valence,
+                "FER_Std_Arousal": std_deviation_arousal,
+                "FER_Kurtosis_Valence": kurtosis_FER_valence,
+                "FER_Kurtosis_Arousal": kurtosis_FER_arousal,
+                "FER_Max_Valence": max_valence_values,
+                "FER_Max_Arousal": max_arousal_values,
+                "FER_Min_Valence": min_valence_values,
+                "FER_Min_Arousal": min_arousal_values,
                 "FER_Quality_Signals": fer_quality_signals['FER_Quality_Signals'],
 
                 'Pupil_after_mean_normalize': pupil_data['after_mean_normalize'],
